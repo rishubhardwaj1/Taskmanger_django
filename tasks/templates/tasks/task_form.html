@@ -1,0 +1,30 @@
+{% extends "base_generic.html" %}
+
+{% block title %}Task Form{% endblock %}
+
+{% block content %}
+<h3 class="mb-3">Task</h3>
+
+<form method="post" class="card p-4 shadow-sm border-0">
+    {% csrf_token %}
+
+    <div class="mb-3">
+        <label class="form-label">Title</label>
+        {{ form.title }}
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Description</label>
+        {{ form.description }}
+    </div>
+
+    <div class="form-check mb-3">
+        {{ form.completed }}
+        <label class="form-check-label">Completed</label>
+    </div>
+
+    <button type="submit" class="btn btn-success">
+        Save
+    </button>
+</form>
+{% endblock %}
